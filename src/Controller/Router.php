@@ -267,8 +267,8 @@ class Router extends BaseRouter
         $requestPath = $request->getPathInfo();
 
         foreach ($this->ignoredURLs as $pattern) {
-            // Use | as delimiter to allow / without escaping
-            if (preg_match('|' . $pattern . '|', $requestPath)) {
+            // Use { and } as delimiter to allow / without escaping
+            if (preg_match('{' . $pattern . '}', $requestPath)) {
                 return true;
             }
         }
